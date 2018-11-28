@@ -34,7 +34,6 @@ public class WordCount {
 		final KafkaStreams streams = new KafkaStreams(topology,prop);
 		final CountDownLatch latch= new CountDownLatch(1);
 		
-		source.foreach((w,c) -> System.out.println("word: "+ w + " -> "+c));;
 		Runtime.getRuntime().addShutdownHook(new Thread("streams-shutdown-hook") {
 			public void run() {
 				streams.close();
